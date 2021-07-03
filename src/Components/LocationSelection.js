@@ -1,5 +1,5 @@
 import React from 'react';
-import { LocationListInputItem, FilterList } from './Molecules';
+import { LocationListInputItem } from './Molecules';
 import { Icons } from '../Constants';
 import styled from 'styled-components';
 
@@ -9,18 +9,14 @@ export const LocationSelectionSearch = ({
     addDestination,
     removeDestination,
     swapStarting,
-    /**Filter List */
-    filterKeys,
-    filterItems,
-    toggleFilter
+    changeText
 }) => {
     return (
         <MainContainer>
             <ListContainer>
                 <List>
                     <LocationListInputItem 
-                        length={1} 
-                        readonly 
+                        length={1}
                         {...fromLocation}
                     />
                     {
@@ -30,7 +26,7 @@ export const LocationSelectionSearch = ({
                                 closeInput={()=>{removeDestination(index)}}
                                 length={inputs.length}
                                 index={index}
-                                readonly
+                                onChange={(e)=> changeText(index, e.target.value)}
                                 {...item} 
                             />
                         ))
@@ -49,11 +45,6 @@ export const LocationSelectionSearch = ({
                     )
                 }
             </ListContainer>
-            <FilterList 
-                filterKeys={filterKeys}
-                filterItems={filterItems}
-                toggleFilter={toggleFilter}
-            />
         </MainContainer>
        
     )
@@ -76,6 +67,11 @@ const MainContainer =  styled.div`
     @media (max-width: 629px) {
         width: 100vw;
     }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+            user-select: none;
 `;
 
 const ListContainer= styled.div`

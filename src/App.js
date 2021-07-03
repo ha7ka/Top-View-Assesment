@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { LocationSelectionSearch, DestinationListItem } from './Components';
+import { LocationSelectionSearch, DestinationListItem, FilterList } from './Components';
 import styled from 'styled-components';
 import { Icons, Destinations } from './Constants';
 
@@ -9,7 +9,8 @@ export default function App() {
   const [fromLocation, setFromLocation] = useState({
     Icon: Icons.StartingPoint,
     value: 'Current Location',
-    placeholder: 'Choose Starting Point' 
+    placeholder: 'Choose Starting Point',
+    readOnly: true
   });
   
   const [inputs, setInputs] = useState([
@@ -34,7 +35,15 @@ export default function App() {
 
     if(filteredDestinations.length === 0) setDestination(Destinations);
     else setDestination(filteredDestinations);
-  },[filterValues])
+  },[filterValues]);
+
+  const changeText = (index, text) => {
+    const newInputs = [...inputs];
+
+    newInputs[index].value = text;
+
+    setInputs(newInputs);
+  }
 
   const toggleFilter = (keyValue) => setFilter({
     ...filterValues,
@@ -52,7 +61,13 @@ export default function App() {
     ]);
   }
 
-  const removeDestination = (index) => setInputs(inputs.splice(index, 1));
+  const removeDestination = (index) => {
+    const newInputs = [...inputs];
+
+    newInputs.splice(index, 1);
+
+    setInputs(newInputs);
+  };
   
   /**Swap the Start and Destination */
   const swapStarting = () => {
@@ -75,6 +90,9 @@ export default function App() {
             addDestination={addDestination} 
             inputs={inputs}
             removeDestination={removeDestination}
+            changeText={changeText}
+          />
+          <FilterList 
             filterKeys={Object.keys(filterValues)}
             filterItems={filterValues}
             toggleFilter={toggleFilter}

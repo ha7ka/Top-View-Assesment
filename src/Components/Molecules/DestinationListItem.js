@@ -13,7 +13,7 @@ export const DestinationListItem = ({
         <Icon size="22px" style={{marginTop: '4px'}} />
         <InformationContainer>
             <CustomBusIcon>
-             {(type === 'Bus Stops') && <BusNumber labels={labels}><Number>{busNumber}</Number></BusNumber>}
+                {(type === 'Bus Stops') && <BusNumber labels={labels}><Number>{busNumber}</Number></BusNumber>}
             </CustomBusIcon>
             <LocationInfo>
                 <InfoItem fontsize="1.2rem" fontWeight={700} >{name}</InfoItem>
@@ -74,6 +74,10 @@ const LabelText = styled.p`
     margin: auto 8px;
     font-size: 14px;
     font-weight: 500;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+            user-select: none;
 `;
 
 const BusNumber = styled.div`
@@ -105,5 +109,8 @@ const Number = styled.span`
 `;
 
 const CustomBusIcon = styled.div`
-
+  -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+            user-select: none;
 `;
