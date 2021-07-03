@@ -26,6 +26,11 @@ const FilterListContainer = styled.div`
     margin: auto;
     padding-top: 20px;
     width: 100%;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+     -khtml-user-select: none; 
+            user-select: none;
 `;
 
 const FilterListStyled = styled.div`

@@ -6,15 +6,21 @@ export const FilterLabel = ({
     onClick,
     active
 }) => (
-        <LabelStyle active={active} onClick={onClick}>
-            {labelText}
-        </LabelStyle>
+        <LabelContainer active={active} onClick={onClick}>
+            <LabelStyle>
+                {labelText}
+            </LabelStyle>
+        </LabelContainer>
 );
 
-const LabelStyle  = styled.li`
-    background-color:  ${props => (props.active && 'lightgray')};
-    padding-right: 10px;
-    padding-left: 10px;
+const LabelContainer  = styled.li`
+    background-color:  ${props => (props.active ? props.color ? props.color : 'darkgrey' : '')};
+    border-radius: 10px;
+    margin:  4px auto;
+`;
+
+const LabelStyle = styled.p`
+    margin: auto 8px;
 `;
 
 
