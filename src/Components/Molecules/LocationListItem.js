@@ -76,6 +76,7 @@ const ListItem = styled.li`
                 align-items: center;
                 justify-content: center;
                 text-align: center;
+                margin:auto;
                 width: 18px;
                 height: 18px;
                 font-size: 10px;
@@ -95,6 +96,7 @@ const StyledText = styled.div`
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
+    margin-left: 6px;
 `;
 
 const ListIcon = styled.div`
