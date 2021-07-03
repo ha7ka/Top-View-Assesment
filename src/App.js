@@ -10,7 +10,7 @@ export default function App() {
     Icon: Icons.StartingPoint,
     value: 'Current Location',
     placeholder: 'Choose Starting Point',
-    readOnly: true
+    readonly: true
   });
   
   const [inputs, setInputs] = useState([
