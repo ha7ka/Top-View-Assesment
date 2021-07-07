@@ -1,16 +1,18 @@
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { BsArrowUpDown, BsXCircle } from 'react-icons/bs';
 import { ImLocation } from 'react-icons/im';
-import { BiCurrentLocation, BiCamera } from 'react-icons/bi';
+import { FaRegDotCircle } from 'react-icons/fa'
+import { BiCamera, BiArrowBack } from 'react-icons/bi';
 import { IoSwapVerticalSharp, IoBusSharp } from 'react-icons/io5';
 
 export const Icons = {
     Plus : AiOutlinePlusCircle,
     UpDown: BsArrowUpDown,
-    StartingPoint : BiCurrentLocation,
+    StartingPoint : FaRegDotCircle,
     X : BsXCircle,
     Location : ImLocation,
     Swap: IoSwapVerticalSharp,
+    BackArrow: BiArrowBack
 }
 
 /**
@@ -18,22 +20,22 @@ export const Icons = {
  */
 export const DowntownTour = {
     label: 'Downtown Tour',
-    color: 'red'
+    color: '#E81517'
 }
 
 export const BrooklynTour = {
     label: 'Brooklyn Tour',
-    color: 'blue'
+    color: '#016F74'
 }
 
 export const Harlem = {
     label: 'Uptown & Harlem Tour',
-    color: 'lightblue'
+    color: '#1AA0D8'
 }
 
 export const NightTour = {
     label: 'Night Tour',
-    color: 'purple'
+    color: '#AB66C7'
 }
 
 export const Destinations = [{
@@ -41,6 +43,7 @@ export const Destinations = [{
     Icon: IoBusSharp,
     type: 'Bus Stops',
     busNumber: 17,
+    busColors: ['#1AA0D8', '#AB66C7','#32CD32' , '#E81517'],
     address: '8th Ave btwn 42nd St & 43rd Street',
     labels: [DowntownTour, BrooklynTour, Harlem, NightTour]
 }, 
@@ -48,6 +51,7 @@ export const Destinations = [{
     name: 'Times Square West',
     Icon: IoBusSharp,
     type: 'Bus Stops',
+    busColors: ['#1AA0D8', '#E81517'],
     busNumber: 3,
     address: '46th St btwn 7th Ave & 8th Ave off 8th..',
     labels: [DowntownTour, Harlem]

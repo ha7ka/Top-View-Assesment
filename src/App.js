@@ -66,6 +66,14 @@ export default function App() {
 
     newInputs.splice(index, 1);
 
+    if(newInputs[0].value !== 'Current Location') 
+      setFromLocation({
+        Icon: Icons.StartingPoint,
+        value: 'Current Location',
+        placeholder: 'Choose Starting Point',
+        readonly: true
+      });
+
     setInputs(newInputs);
   };
   
@@ -84,6 +92,8 @@ export default function App() {
   return (
     <MainContainer>
       <PanelContainer>
+          <BackIcon size='18px' />
+
           <LocationSelectionSearch 
             swapStarting={swapStarting}
             fromLocation={fromLocation}
@@ -92,12 +102,12 @@ export default function App() {
             removeDestination={removeDestination}
             changeText={changeText}
           />
-          <FilterList 
-            filterKeys={Object.keys(filterValues)}
-            filterItems={filterValues}
-            toggleFilter={toggleFilter}
-          />
           <DestinationListContainer>
+            <FilterList 
+              filterKeys={Object.keys(filterValues)}
+              filterItems={filterValues}
+              toggleFilter={toggleFilter}
+            />
             {
               destination.map((value)=> (
                 <DestinationListItem 
@@ -108,38 +118,33 @@ export default function App() {
             }
           </DestinationListContainer>
       </PanelContainer>
-      <MapContainer>
-        <h1>THIS IS A MAP</h1>
-      </MapContainer>
     </MainContainer>
   );
 }
 
 const MainContainer = styled.div`
-  display: flex;
-`;
 
-const MapContainer = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  background-color: green;
-
-  @media (max-width: 629px) {
-      display:none;
+  @media (min-width: 400px) {
+      justify-content: center;
+      align-content: center;
+      padding-top: 20px;
   }
 `;
+;
 
 const PanelContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 400px;
-  height: 100vh;
+  width: 375px;
+  height: 667px;
 
-  @media (max-width: 629px) {
+  @media (min-width: 400px) {
+    border: 1px solid darkgray;
+    margin: auto;
+  }
+
+  @media (max-width: 400px) {
       width: 100vw;
   }
 `;
@@ -148,7 +153,14 @@ const DestinationListContainer = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 14px;
 `;
 
+const BackIcon = styled(Icons.BackArrow)`
+  position: absolute;
+  margin-top: 32px;
+  margin-left: 19.75px;
+`;
 

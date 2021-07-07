@@ -6,12 +6,16 @@ export const StyledTextInput = (props) => (
 );
 
 const StyledInput = styled.input`
-    border-radius: 5px;
-    border-width: 1px;
+    border-radius: 6px;
+    border: 1px solid #BFBFBF;
     height: ${props => (props.height)};
-    width: 225px;
-    height: 35px;
-    margin: 5px;
-    margin-top: 0;
-    margin-bottom: 0;
+    width: 251px;
+    height: 36px;
+    margin: 3px;
+
+    /**Font */
+    font-size: 15px;
+    color: #484848;
+    text-indent: 13.5px;
+    letter-spacing: 0px;
 `;
