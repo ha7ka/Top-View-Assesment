@@ -102,12 +102,12 @@ export default function App() {
             removeDestination={removeDestination}
             changeText={changeText}
           />
+          <FilterList 
+            filterKeys={Object.keys(filterValues)}
+            filterItems={filterValues}
+            toggleFilter={toggleFilter}
+          />
           <DestinationListContainer>
-            <FilterList 
-              filterKeys={Object.keys(filterValues)}
-              filterItems={filterValues}
-              toggleFilter={toggleFilter}
-            />
             {
               destination.map((value)=> (
                 <DestinationListItem 
