@@ -23,9 +23,9 @@ export const FilterList = ({
 
 const FilterListContainer = styled.div`
     display: flex;
-    margin: auto;
-    padding-top: 20px;
-    width: 100%;
+    margin-top: 0px;
+    width: 375px;
+
 
     -webkit-touch-callout: none;
     -webkit-user-select: none; 
@@ -38,6 +38,7 @@ const FilterListStyled = styled.div`
     justify-content: space-around;
     list-style-type: none;
     width: 100%;
-                
-    border-bottom: 2px solid lightgray;
+    margin-top: 0;
+
+    border-bottom: 2px solid #BFBFBF;
 `;

@@ -50,10 +50,10 @@ const ListItem = styled.li`
     &:after{
         content:"";
         position: absolute;
-        left: 9.5px; 
-        bottom: -0.77em;
-        border-left: 1px dotted black;
-        height: 60%;
+        left: 9px; 
+        bottom: -0.90em;
+        border-left: 2px dotted #707070;
+        height: 55%;
         width: 1px;
     }
 
@@ -96,7 +96,15 @@ const StyledText = styled.div`
     -moz-user-select: none; 
     -ms-user-select: none; 
     user-select: none;
-    margin-left: 6px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0px;
+    padding-left: 22.5px;
+
+    /**font */
+    font-size: 12.5px;
+    color: #5A5A5A;
+    letter-spacing: 0px;
 `;
 
 const ListIcon = styled.div`

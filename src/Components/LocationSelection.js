@@ -12,39 +12,37 @@ export const LocationSelectionSearch = ({
     changeText
 }) => {
     return (
-        <MainContainer>
-            <ListContainer>
-                <List>
-                    <LocationListInputItem 
-                        length={1}
-                        {...fromLocation}
-                    />
-                    {
-                        inputs.map((item, index) => (
-                            <LocationListInputItem 
-                                key={`Destination-input-${index}`}
-                                closeInput={()=>{removeDestination(index)}}
-                                length={inputs.length}
-                                index={index}
-                                onChange={(e)=> changeText(index, e.target.value)}
-                                {...item} 
-                            />
-                        ))
-                    }
-                    <LocationListInputItem
-                        Icon={Icons.Plus}
-                        listText="Add Destination"
-                        addDestination={addDestination}
-                    />
-                </List>
+        <MainContainer length={inputs.length}>
+            <List>
+                <LocationListInputItem 
+                    length={1}
+                    {...fromLocation}
+                />
                 {
-                    (inputs.length === 1) &&  (
-                        <SwapContainer>
-                            <Icons.Swap fontSize='18px' onClick={swapStarting}/>
-                        </SwapContainer>
-                    )
+                    inputs.map((item, index) => (
+                        <LocationListInputItem 
+                            key={`Destination-input-${index}`}
+                            closeInput={()=>{removeDestination(index)}}
+                            length={inputs.length}
+                            index={index}
+                            onChange={(e)=> changeText(index, e.target.value)}
+                            {...item} 
+                        />
+                    ))
                 }
-            </ListContainer>
+                <LocationListInputItem
+                    Icon={Icons.Plus}
+                    listText="Add destination"
+                    addDestination={addDestination}
+                />
+            </List>
+            {
+                (inputs.length === 1) &&  (
+                    <SwapContainer>
+                        <StyledSwap fontSize='18px' onClick={swapStarting}/>
+                    </SwapContainer>
+                )
+            }
         </MainContainer>
        
     )
@@ -55,14 +53,16 @@ const List = styled.ul`
     list-style-type: none; 
 `;
 
-const MainContainer =  styled.div`   
+const MainContainer =  styled.div`  
+    display:flex;
+    margin-bottom: 0;
     &::after {
         content: "";
         display: table;
         clear: both;
     }
 
-    width: 400px;
+    width: 375px;
 
     @media (max-width: 629px) {
         width: 100vw;
@@ -74,17 +74,15 @@ const MainContainer =  styled.div`
             user-select: none;
 `;
 
-const ListContainer= styled.div`
-    display:flex;
+const SwapContainer = styled.div`
+    display:flex;   
+    flex-grow: 1;
+    justify-content:flex-end;
 `;
 
-
-const SwapContainer = styled.div`
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: center;
-
+const StyledSwap = styled(Icons.Swap)`
+    padding-top: 60px;
+    margin-right: 11px;
 `;
 
 
